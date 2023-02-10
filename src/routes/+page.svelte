@@ -41,7 +41,7 @@
 		<T.AmbientLight intensity={0.2} />
 
 		<!-- Cube -->
-			<GLTF castShadow scale={$scale} url="https://threejs.org/examples/models/gltf/Xbot.glb"/>
+			<GLTF castShadow scale={20} url="/ferrari.glb"/>
 		<T.Group scale={$scale}>
 		</T.Group>
 
