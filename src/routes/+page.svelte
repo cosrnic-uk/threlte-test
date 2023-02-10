@@ -9,7 +9,8 @@
 	let scale = spring(1)
 
   function scroll() {
-    scale = spring(1);
+    scale = spring(y/50);
+    camera.position = [y/50 + 10, y/50, y/50+ 10]
     console.log(y/10);
     requestAnimationFrame(scroll)
   }
