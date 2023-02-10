@@ -12,7 +12,7 @@
 
   function scroll() {
     scale = spring(y/50);
-    camera.position = [y/50 + 10, y/50+10, y/50+ 10]
+    // camera.position = [y/50 + 10, y/50+10, y/50+ 10]
     console.log(y/10);
     requestAnimationFrame(scroll)
   }
@@ -33,7 +33,7 @@
 <div class="full">
 	<Canvas>
 		<T.PerspectiveCamera makeDefault {...camera}>
-			<OrbitControls maxPolarAngle={degToRad(80)} enableZoom={false} target={{ y: 0.5 }} />
+			<OrbitControls />
 		</T.PerspectiveCamera>
 
 		<T.DirectionalLight castShadow position={[3, 10, 10]} />
@@ -41,7 +41,7 @@
 		<T.AmbientLight intensity={0.2} />
 
 		<!-- Cube -->
-			<GLTF scale={$scale} url="https://threejs.org/examples/models/gltf/Xbot.glb"/>
+			<GLTF castShadow scale={$scale} url="https://threejs.org/examples/models/gltf/Xbot.glb"/>
 		<T.Group scale={$scale}>
 		</T.Group>
 
