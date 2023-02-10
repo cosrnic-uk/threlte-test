@@ -4,13 +4,15 @@
 	import { degToRad } from 'three/src/math/MathUtils'
   import { onMount } from 'svelte'
 
+	import { GLTF} from '@threlte/extras'
+
   let y;
 
 	let scale = spring(1)
 
   function scroll() {
     scale = spring(y/50);
-    camera.position = [y/50 + 10, y/50, y/50+ 10]
+    camera.position = [y/50 + 10, y/50+10, y/50+ 10]
     console.log(y/10);
     requestAnimationFrame(scroll)
   }
@@ -39,19 +41,8 @@
 		<T.AmbientLight intensity={0.2} />
 
 		<!-- Cube -->
+			<GLTF scale={$scale} url="https://threejs.org/examples/models/gltf/Xbot.glb"/>
 		<T.Group scale={$scale}>
-			<T.Mesh position.y={0.5} castShadow let:ref>
-				<!-- Add interaction -->
-				<InteractiveObject
-					object={ref}
-					interactive
-					on:pointerenter={() => ($scale = 2)}
-					on:pointerleave={() => ($scale = 1)}
-				/>
-
-				<T.BoxGeometry />
-				<T.MeshStandardMaterial color="#333333" />
-			</T.Mesh>
 		</T.Group>
 
 		<!-- Floor -->
